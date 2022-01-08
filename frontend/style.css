@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Bungee+Shade&family=Permanent+Marker&family=Tajawal:wght@300&display=swap');
+/*
+-----Fonter-----
+Bungee Shade: Artistnamn
+Permanent Marker: Albumtitlar
+Tajawal: Brödtext
+*/
+body {
+  font-family: 'Tajawal';
+}
+
+.active {
+
+}
+
+a {
+text-decoration: none;
+color: black;
+}
+
+.titleArtist {
+  font-family: 'Bungee Shade';
+}
+.titleAlbum {
+  font-family: 'Permanent Marker';
+}

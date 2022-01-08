@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Add artist</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <a href="index.html">Homepage</a>
+  <a class=".active" href="add-artist.html">Add an artist</a>
+  <a href="add-album.html">Add an album</a>
+  <main>
+    <h2>Lägg till en artist</h2>
+    <form name="addArtist">
+      <input type="text" name="name" placeholder="Artistnamn" required>
+      <textarea name="description" placeholder="Beskriv artisten..." minlength="10" maxlength="400" required></textarea>
+      <input type="submit" value="Lägg till artisten">
+    </form>
+  </main>
+  <script src="add-artist.js"></script>
+</body>
+
+</html>
