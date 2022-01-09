@@ -1,170 +1,224 @@
 {
 	"info": {
-		"_postman_id": "620d8b86-95ec-4a32-ba60-4d4ca71d488a",
+		"_postman_id": "f07e3a64-532c-414a-9c28-0e742ef5cbe1",
 		"name": "Music-page-tests",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
 		{
-			"name": "Get all albums",
-			"event": [
+			"name": "GET existing albums and artists",
+			"item": [
 				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"pm.test(\"Status code is 200\", function () {\r",
-							"    pm.response.to.have.status(200);\r",
-							"});\r",
-							"pm.test(\"Response time is less than 500 ms\", function () {\r",
-							"    pm.expect(pm.response.responseTime).to.be.below(500);\r",
-							"});"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:3000/api/artists/",
-					"protocol": "http",
-					"host": [
-						"localhost"
+					"name": "Get all albums",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Response time is less than 500 ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(500);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
 					],
-					"port": "3000",
-					"path": [
-						"api",
-						"artists",
-						""
-					]
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/artists/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"artists",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get an album from id",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Response time is less than 500 ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(500);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/albums/5",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"albums",
+								"5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all artists",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Response time is less than 500 ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(500);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/artists",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"artists"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get an artist from id",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Response time is less than 500 ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(500);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/artists/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"artists",
+								"3"
+							]
+						}
+					},
+					"response": []
 				}
-			},
-			"response": []
+			]
 		},
 		{
-			"name": "Get an album from id",
+			"name": "Add 2 artists",
 			"event": [
 				{
 					"listen": "test",
 					"script": {
 						"exec": [
 							"pm.test(\"Status code is 200\", function () {\r",
-							"    pm.response.to.have.status(200);\r",
-							"});\r",
-							"pm.test(\"Response time is less than 500 ms\", function () {\r",
-							"    pm.expect(pm.response.responseTime).to.be.below(500);\r",
-							"});"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:3000/api/albums/5",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "3000",
-					"path": [
-						"api",
-						"albums",
-						"5"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Get all artists",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"pm.test(\"Status code is 200\", function () {\r",
-							"    pm.response.to.have.status(200);\r",
-							"});\r",
-							"pm.test(\"Response time is less than 500 ms\", function () {\r",
-							"    pm.expect(pm.response.responseTime).to.be.below(500);\r",
-							"});"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:3000/api/artists",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "3000",
-					"path": [
-						"api",
-						"artists"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Get an artist from id",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"pm.test(\"Status code is 200\", function () {\r",
-							"    pm.response.to.have.status(200);\r",
-							"});\r",
-							"pm.test(\"Response time is less than 500 ms\", function () {\r",
-							"    pm.expect(pm.response.responseTime).to.be.below(500);\r",
-							"});"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:3000/api/artists/3",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "3000",
-					"path": [
-						"api",
-						"artists",
-						"3"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Add an artist",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"pm.test(\"Status code is 200\", function () {\r",
-							"    pm.response.to.have.status(200);\r",
-							"});\r",
+							"    pm.response.to.have.status(200)\r",
+							"})\r",
 							"pm.test(\"Response time is less than 500ms\", function () {\r",
-							"    pm.expect(pm.response.responseTime).to.be.below(500);\r",
-							"});"
+							"    pm.expect(pm.response.responseTime).to.be.below(500)\r",
+							"})\r",
+							"\r",
+							"let responseData = pm.response.json()\r",
+							"\r",
+							"pm.test('The REST-api gives correct feedback on response', function() {\r",
+							"    pm.expect(responseData.changes).to.equal(1)\r",
+							"    pm.expect(responseData.lastInsertRowid).to.be.a('number')\r",
+							"    pm.expect(responseData.lastInsertRowid).to.be.above(0)\r",
+							"})\r",
+							"\r",
+							"let testData = JSON.parse(pm.environment.get('testData'))\r",
+							"let counter = +(pm.environment.get('counter') || 0)\r",
+							"testData[counter].id = responseData.lastInsertRowid\r",
+							"pm.environment.set('testData', JSON.stringify(testData))\r",
+							"counter++\r",
+							"pm.environment.set('counter', counter)\r",
+							"if(testData[counter]) {\r",
+							"    postman.setNextRequest('Add 2 artists')\r",
+							"}\r",
+							"else {\r",
+							"    pm.environment.set('counter', 0)\r",
+							"}\r",
+							"\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"let testData = [\r",
+							"\r",
+							"    {\r",
+							"        name: \"The Real Group\",\r",
+							"        description: \"The Real Group is a Swedish vocal group with five dedicated singers and musicians. The group has been touring for more than 30 years and continues to excite a broad audience all over the world. With a unique musical expression in a field between jazz, pop and Northern European choral music, The Real Group is considered one of the leading forces in the world of vocal music.\"\r",
+							"    },\r",
+							"    {\r",
+							"        name:\"The Flashbulb\",\r",
+							"        description:\"Benn Lee Jordan (born October 28, 1979) is an American modern jazz and electronic musician operating under many pseudonyms. Since 1999, his most widely distributed electronic music has been released under the name of The Flashbulb. As The Flashbulb, Jordan typically releases electronic or cinematic styled music. His style differs strongly between albums, but they all have a cohesive bond tied around intricate drum programming, jazz-influenced melodies, and a wide array of live instrumentation from various instruments Jordan has acquired. He also often records his melodies through MIDI-synced guitars. His guitar style and skill have gained attention because he typically plays the guitar strung backwards, and makes heavy use of fast sweeping and tapping.\"\r",
+							"    }\r",
+							"]\r",
+							"if(!pm.environment.get('testData')) {\r",
+							"    pm.environment.set('testData', JSON.stringify(testData))\r",
+							"}\r",
+							"let counter = +(pm.environment.get('counter') || 0)\r",
+							"\r",
+							"pm.environment.set('sendTheseArtists', JSON.stringify(testData[counter]))"
 						],
 						"type": "text/javascript"
 					}
@@ -175,7 +229,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"name\": \"Agnes Obel\",\r\n    \"description\":\"Agnes Caroline Thaarup Obel (born 28 October 1980)[1] is a Danish singer, songwriter, and musician based in Berlin. Her debut album, Philharmonics (2010), was released by PIAS Recordings, and was certified gold in June 2011 by the Belgian Entertainment Association (BEA) after selling 10,000 units.[2] At the Danish Music Awards in November 2011, Obel won five prizes, including Best Album and Best Debut Artist.[3] Her second album Aventine (2013) received positive reviews and charted inside the top 40 of the charts in nine countries.\"\r\n}",
+					"raw": "{{sendTheseArtists}}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -198,7 +252,147 @@
 			"response": []
 		},
 		{
-			"name": "Add an album linked to the recently added artist",
+			"name": "Get the recently added artists",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"let testData = JSON.parse(pm.environment.get('testData'))\r",
+							"let counter = +(pm.environment.get('counter'))\r",
+							"pm.environment.set('id', testData[counter].id)\r",
+							"\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200)\r",
+							"})\r",
+							"pm.test(\"Response time is less than 500ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(500)\r",
+							"})\r",
+							"\r",
+							"let responseData = pm.response.json()\r",
+							"\r",
+							"let testData = JSON.parse(pm.environment.get('testData'))\r",
+							"let counter = +(pm.environment.get('counter'))\r",
+							"\r",
+							"pm.test('The added artists have identical data when Requesting GET', function() {\r",
+							"    console.log('The GET response(id):', responseData.id)\r",
+							"    console.log('The POST data(id):', testData[counter].id)\r",
+							"    pm.expect(responseData).to.deep.equal(testData[counter])\r",
+							"})\r",
+							"\r",
+							"counter++\r",
+							"pm.environment.set('counter', counter)\r",
+							"if(testData[counter]) {\r",
+							"    postman.setNextRequest('Get the recently added artists')\r",
+							"}\r",
+							"else {\r",
+							"    pm.environment.set('counter', 0)\r",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/artists/{{id}}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"artists",
+						"{{id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete the added artists",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"let testData = JSON.parse(pm.environment.get('testData'))\r",
+							"let counter = +(pm.environment.get('counter'))\r",
+							"pm.environment.set('id', testData[counter].id)"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200)\r",
+							"})\r",
+							"pm.test(\"Response time is less than 500ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(500)\r",
+							"})\r",
+							"\r",
+							"let responseData = pm.response.json()\r",
+							"\r",
+							"let testData = JSON.parse(pm.environment.get('testData'))\r",
+							"let counter = +(pm.environment.get('counter'))\r",
+							"\r",
+							"pm.test('The REST-api gives correct feedback on response', function() {\r",
+							"    console.log('Deleting artist:', testData[counter].name)\r",
+							"    pm.expect(responseData.changes).to.equal(1)\r",
+							"    pm.expect(responseData.lastInsertRowid).to.be.a('number')\r",
+							"    pm.expect(responseData.lastInsertRowid).to.be.above(0)\r",
+							"})\r",
+							"\r",
+							"counter++\r",
+							"pm.environment.set('counter', counter)\r",
+							"if(testData[counter]) {\r",
+							"    postman.setNextRequest('Delete the added artists')\r",
+							"}\r",
+							"else {\r",
+							"pm.environment.set('counter', 0)\r",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/artists/{{id}}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"artists",
+						"{{id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add an album linked to the recently added artists",
 			"event": [
 				{
 					"listen": "test",
@@ -220,7 +414,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"name\":\"Aventine\",\r\n    \"dateOfRelease\": 2013,\r\n    \"artistId\": 11\r\n}",
+					"raw": "",
 					"options": {
 						"raw": {
 							"language": "json"
