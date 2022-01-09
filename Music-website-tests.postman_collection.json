@@ -181,7 +181,9 @@
 							"\r",
 							"let testData = JSON.parse(pm.environment.get('testData'))\r",
 							"let counter = +(pm.environment.get('counter') || 0)\r",
+							"console.log('pre-set (testData body):', testData[counter])\r",
 							"testData[counter].id = responseData.lastInsertRowid\r",
+							"console.log('post-set (testData body):', testData[counter])\r",
 							"pm.environment.set('testData', JSON.stringify(testData))\r",
 							"counter++\r",
 							"pm.environment.set('counter', counter)\r",
@@ -285,8 +287,8 @@
 							"let counter = +(pm.environment.get('counter'))\r",
 							"\r",
 							"pm.test('The added artists have identical data when Requesting GET', function() {\r",
-							"    console.log('The GET response(id):', responseData.id)\r",
-							"    console.log('The POST data(id):', testData[counter].id)\r",
+							"    console.log('The GET response:', responseData)\r",
+							"    console.log('The POST data:', testData[counter])\r",
 							"    pm.expect(responseData).to.deep.equal(testData[counter])\r",
 							"})\r",
 							"\r",
@@ -319,6 +321,234 @@
 						"{{id}}"
 					]
 				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add one album linked to each added artist",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Response time is less than 500ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(500);\r",
+							"});\r",
+							"\r",
+							"let responseData = pm.response.json()\r",
+							"\r",
+							"pm.test('The REST-api gives correct feedback on response', function() {\r",
+							"    pm.expect(responseData.changes).to.equal(1)\r",
+							"    pm.expect(responseData.lastInsertRowid).to.be.a('number')\r",
+							"    pm.expect(responseData.lastInsertRowid).to.be.above(0)\r",
+							"})\r",
+							"\r",
+							"let albumData = JSON.parse(pm.environment.get('albumData'))\r",
+							"let counter = +(pm.environment.get('counter') || 0)\r",
+							"console.log('Before adding id to album:', albumData[counter])\r",
+							"albumData[counter].id = responseData.lastInsertRowid\r",
+							"console.log('After adding id to album:', albumData[counter])\r",
+							"pm.environment.set('albumData', JSON.stringify(albumData))\r",
+							"counter++\r",
+							"pm.environment.set('counter', counter)\r",
+							"if(albumData[counter]) {\r",
+							"    postman.setNextRequest('Add one album linked to each added artist')\r",
+							"}\r",
+							"else {\r",
+							"    pm.environment.set('counter', 0)\r",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"//Get artist data\r",
+							"let testData = JSON.parse(pm.environment.get('testData'))\r",
+							"let counter = +(pm.environment.get('counter'))\r",
+							"\r",
+							"//Create albumData without artistId\r",
+							"let albumData = [\r",
+							"    {\r",
+							"        name:\"Stämning\",\r",
+							"        dateOfRelease: 2002,\r",
+							"    },\r",
+							"    {\r",
+							"        name:\"Compositions for Piano\",\r",
+							"        dateOfRelease: 2015,\r",
+							"    }\r",
+							"]\r",
+							"if(!pm.environment.get('albumData')){\r",
+							"    pm.environment.set('albumData', JSON.stringify(albumData))\r",
+							"}\r",
+							"\r",
+							"//Add artistId as key in albumData and link it to the artist's id in testData\r",
+							"console.log('Pre-link:',albumData[counter])\r",
+							"albumData[counter].artistId = testData[counter].id\r",
+							"console.log('Post-link:',albumData[counter])\r",
+							"//Update albumData so it includes artistId for the tests\r",
+							"//pm.environment.set('albumData', JSON.stringify(albumData[counter]))\r",
+							"//Add data to the body\r",
+							"pm.environment.set('createAlbums', JSON.stringify(albumData[counter]))\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{{createAlbums}}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/albums",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"albums"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get the recently added albums",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"let albumData = JSON.parse(pm.environment.get('albumData'))\r",
+							"let counter = +(pm.environment.get('counter'))\r",
+							"pm.environment.set('id', albumData[counter].id)"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200)\r",
+							"})\r",
+							"pm.test(\"Response time is less than 500ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(500)\r",
+							"})\r",
+							"\r",
+							"let responseData = pm.response.json()\r",
+							"\r",
+							"let albumData = JSON.parse(pm.environment.get('albumData'))\r",
+							"let counter = +(pm.environment.get('counter'))\r",
+							"\r",
+							"pm.test('The added albums have identical data when Requesting GET', function() {\r",
+							"    console.log('The GET response:', responseData)\r",
+							"    console.log('The POST data):', albumData[counter])\r",
+							"    pm.expect(responseData).to.deep.equal(albumData[counter])\r",
+							"})\r",
+							"\r",
+							"counter++\r",
+							"pm.environment.set('counter', counter)\r",
+							"if(albumData[counter]) {\r",
+							"    postman.setNextRequest('Get the recently added albums')\r",
+							"}\r",
+							"else {\r",
+							"    pm.environment.set('counter', 0)\r",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/albums/{{id}}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"albums",
+						"{{id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Edit one added artist",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/artists",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"artists"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get one edited artist",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": null
+			},
+			"response": []
+		},
+		{
+			"name": "Edit one added album",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"url": null
+			},
+			"response": []
+		},
+		{
+			"name": "Get one edited album",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": null
+			},
+			"response": []
+		},
+		{
+			"name": "Delete the added albums",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": null
 			},
 			"response": []
 		},
@@ -386,51 +616,6 @@
 						"api",
 						"artists",
 						"{{id}}"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Add an album linked to the recently added artists",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"pm.test(\"Status code is 200\", function () {\r",
-							"    pm.response.to.have.status(200);\r",
-							"});\r",
-							"pm.test(\"Response time is less than 500ms\", function () {\r",
-							"    pm.expect(pm.response.responseTime).to.be.below(500);\r",
-							"});"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "http://localhost:3000/api/albums",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "3000",
-					"path": [
-						"api",
-						"albums"
 					]
 				}
 			},
