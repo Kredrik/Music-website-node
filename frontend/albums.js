@@ -15,7 +15,9 @@ async function getAlbumAndArtist() {
 }
 
 function render() {
-  let html = `<h1 class="titleArtist">${artist.name}</h1>`
+  let html = `
+  <div class="textBox_Albums">
+  <h2>${artist.name}</h2>`
   for (album of albums) {
     html += `
     <h2 class="titleAlbum">${album.name}</h2>
@@ -25,6 +27,7 @@ function render() {
   if (albums.length === 0) {
     html += 'This artist does not have any albums yet!'
   }
+  html += '</div>'
   document.querySelector('.albums').innerHTML = html
 }
 getAlbumAndArtist()

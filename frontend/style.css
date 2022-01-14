@@ -1,26 +1,107 @@
 @import url('https://fonts.googleapis.com/css2?family=Bungee+Shade&family=Permanent+Marker&family=Tajawal:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@800&display=swap');
 /*
 -----Fonter-----
 Bungee Shade: Artistnamn
 Permanent Marker: Albumtitlar
+Dosis: Navigering/Menu
 Tajawal: Brödtext
 */
 body {
   font-family: 'Tajawal';
+  font-size: 25px;
+  background-size: cover;
+  background-attachment: fixed;
+  background-image: url('images/cozy-piano.jpg');
+  margin:0; 
+}
+body img{
+  background-color: black;
+}
+h2 {
+  font-family: 'Bungee Shade';
+}
+header {
+  padding: 20px;
+  background-color: rgba(223, 255, 172, 0.52);
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+main {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px;
+  border-radius: 10px;
+}
+nav {
+  font-family: 'Dosis';
+  font-size: 50px;
+  margin-top: 20px;
+  word-spacing: 5px;
 }
 
+nav a {
+  margin: 10px;
+  padding: 10px;
+  transition: 50ms ease-in-out;
+  border-radius: 20px;
+}
+nav a:hover {
+  transform: translate3d(20px);
+  background-color: rgba(0, 0, 0, 0.103);
+}
 .active {
-
+color: rgb(124, 51, 62);
 }
 
 a {
 text-decoration: none;
 color: black;
 }
-
-.titleArtist {
-  font-family: 'Bungee Shade';
+.listOfArtists {
+  background-color: rgba(199, 105, 16, 0.5);
+  margin: 20px 0;
+  border-radius: 15px;
+  padding: 1px 21px;
 }
+
+.artistModule {
+margin: 20px 0;
+  border-radius: 20px;
+  padding: 10px;
+  background-color: rgba(255, 236, 182, 0.842);
+  overflow: auto;
+}
+.textBox_Artist {
+  padding-left: 30px;
+}
+.titleArtist {
+  margin: 10px;
+  padding: 20px;
+  transition: 50ms ease-in-out;
+}
+.titleArtist:hover {
+  padding-left: 50px;
+  transform: translate3d(20px);
+  background-color: rgba(0, 0, 0, 0.103);
+  border-radius: 20px;
+}
+
+.albums {
+margin: 20px 0;
+  border-radius: 20px;
+  padding: 10px;
+  background-color: rgba(255, 236, 182, 0.842);
+  overflow: auto;
+}
+.textBox_Albums {
+  padding-left: 30px;
+}
+
+.inputModule {
+
+}
+
 .titleAlbum {
   font-family: 'Permanent Marker';
 }

@@ -16,16 +16,16 @@ function render() {
 
   for (let artist of artists) {
     html += `
+    <div class="artistModule">
+    <a href="albums.html?${artist.id}">
     <h2 class="titleArtist">${artist.name}</h2>
+    </a>
+    <div class="textBox_Artist">
     <h3>Description:</h3>
     <p>${artist.description}</p>
-
-    <a href="albums.html?${artist.id}">
-    <p>
-    <b>View Albums</b> 
-    </p>
-    </a>
+    </div>  
+    </div>
     `
   }
-  document.querySelector('main').innerHTML = html
+  document.querySelector('.listOfArtists').innerHTML = html
 }
