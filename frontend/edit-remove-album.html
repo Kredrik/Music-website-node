@@ -5,11 +5,30 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Edit/Remove album</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-
+  <header>
+    <nav>
+      <a href="index.html">Homepage</a>
+      <a href="add-artist.html">Add an artist</a>
+      <a href="add-album.html">Add an album</a>
+      <a href="edit-remove-artist.html">Edit/Remove artist</a>
+      <a class="active" href="edit-remove-album.html">Edit/Remove album</a>
+    </nav>
+  </header>
+  <main>
+    <div class="inputModule">
+      <h2>Add/remove an artist</h2>
+      <form name="addOrRemoveArtist">
+        <input type="text" name="name" placeholder="Artistnamn" required>
+        <textarea name="description" placeholder="Beskriv artisten..." minlength="10" maxlength="400"
+          required></textarea>
+        <input type="submit" value="Lägg till artisten">
+      </form>
+  </main>
 </body>
 
 </html>

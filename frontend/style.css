@@ -97,8 +97,22 @@ margin-top: 75px;
 
 input {
   display: block;
+  margin-bottom: 10px;
 }
 
+input[name] {
+  width: 89.75%;
+}
+
+input[placeholder] {
+  padding-left: 5px;
+}
+ textarea {
+  width: 90%;
+  padding-bottom: 30px;
+  padding-left: 5px;
+  margin-bottom: 10px;
+}
 .titleAlbum {
   font-family: 'Permanent Marker';
 }
