@@ -18,15 +18,17 @@
     </nav>
   </header>
   <main>
-    <h2>Lägg till ett album</h2>
-    <form name="addAlbum">
-      <input type="text" name="name" placeholder="Albumnamn" required>
-      <input type="number" name="dateOfRelease" placeholder="Utgivningsår" min="0" max="2022" required>
-      <select name="artistId" required>
-        <option value="">Länka albumet till en artist</option>
-      </select>
-      <input type="submit" value="Lägg till albumet">
-    </form>
+    <div class="inputModule">
+      <h2>Add an album</h2>
+      <form name="addAlbum">
+        <input type="text" name="name" placeholder="Albumnamn" required>
+        <input type="number" name="dateOfRelease" placeholder="Utgivningsår" min="0" max="2022" required>
+        <select name="artistId" required>
+          <option value="">Länka albumet till en artist</option>
+        </select>
+        <input type="submit" value="Lägg till albumet">
+      </form>
+    </div>
   </main>
   <script src="add-album.js"></script>
 </body>

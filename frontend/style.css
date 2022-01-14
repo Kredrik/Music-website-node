@@ -20,6 +20,7 @@ body img{
 }
 h2 {
   font-family: 'Bungee Shade';
+  margin: 0;
 }
 header {
   padding: 20px;
@@ -65,14 +66,14 @@ color: black;
   padding: 1px 21px;
 }
 
-.artistModule {
+.artistModule, .albums {
 margin: 20px 0;
   border-radius: 20px;
   padding: 10px;
   background-color: rgba(255, 236, 182, 0.842);
   overflow: auto;
 }
-.textBox_Artist {
+.textBox_Artist, .textBox_Albums {
   padding-left: 30px;
 }
 .titleArtist {
@@ -87,19 +88,15 @@ margin: 20px 0;
   border-radius: 20px;
 }
 
-.albums {
-margin: 20px 0;
-  border-radius: 20px;
-  padding: 10px;
-  background-color: rgba(255, 236, 182, 0.842);
-  overflow: auto;
-}
-.textBox_Albums {
-  padding-left: 30px;
-}
-
 .inputModule {
+background-color: rgba(223, 255, 172, 0.52);
+border-radius: 20px;
+padding: 25px;
+margin-top: 75px;
+}
 
+input {
+  display: block;
 }
 
 .titleAlbum {
