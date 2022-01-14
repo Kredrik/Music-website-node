@@ -6,7 +6,7 @@
 	},
 	"item": [
 		{
-			"name": "(Positive tests) Get existing albums/artists",
+			"name": "Get existing albums/artists",
 			"item": [
 				{
 					"name": "Get all albums",
