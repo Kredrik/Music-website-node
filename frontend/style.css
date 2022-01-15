@@ -87,32 +87,38 @@ margin: 20px 0;
   background-color: rgba(0, 0, 0, 0.103);
   border-radius: 20px;
 }
+.titleAlbum {
+  font-family: 'Permanent Marker';
+}
 
 .inputModule {
 background-color: rgba(223, 255, 172, 0.52);
 border-radius: 20px;
 padding: 25px;
 margin-top: 75px;
+max-width: 500px;
 }
 
-input {
+input, select {
   display: block;
   margin-bottom: 10px;
+  width: 90%;
 }
 
-input[name] {
-  width: 89.75%;
+input[type="number"] {
+  max-width: 160px;
+}
+input[type="text"] {
+  max-width: 200px;
 }
 
 input[placeholder] {
   padding-left: 5px;
 }
  textarea {
-  width: 90%;
+  width: 88%;
   padding-bottom: 30px;
   padding-left: 5px;
   margin-bottom: 10px;
 }
-.titleAlbum {
-  font-family: 'Permanent Marker';
-}
+

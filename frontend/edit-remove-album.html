@@ -21,13 +21,18 @@
   </header>
   <main>
     <div class="inputModule">
-      <h2>Add/remove an artist</h2>
-      <form name="addOrRemoveArtist">
-        <input type="text" name="name" placeholder="Artistnamn" required>
-        <textarea name="description" placeholder="Beskriv artisten..." minlength="10" maxlength="400"
-          required></textarea>
-        <input type="submit" value="Lägg till artisten">
+      <h2>Edit/remove an album</h2>
+      <form name="editOrRemoveAlbum">
+        <select name="id">
+          <option value="">Select album</option>
+        </select>
+        <input type="text" name="name" placeholder="Album name (Optional)">
+        <input type="number" name="dateOfRelease" placeholder="Release date (Optional)" min="0" max="2022">
+        <div class="submitButtons">
+          <input type="submit" value="Edit album">
+          <input type="submit" value="Delete album">
       </form>
+    </div>
   </main>
 </body>
 

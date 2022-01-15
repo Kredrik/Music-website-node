@@ -20,7 +20,19 @@
     </nav>
   </header>
   <main>
-
+    <div class="inputModule">
+      <h2>Edit/remove an artist</h2>
+      <form name="editOrRemoveArtist">
+        <select name="id">
+          <option value="">Select artist</option>
+        </select>
+        <input type="text" name="name" placeholder="Artist name (Optional)">
+        <textarea name="description" placeholder="Description...(Optional)" minlength="10" maxlength="400"></textarea>
+        <div class="submitButtons">
+          <input type="submit" value="Edit artist">
+          <input type="submit" value="Delete artist">
+      </form>
+    </div>
   </main>
   <script src="edit-remove-artist.js"></script>
 </body>

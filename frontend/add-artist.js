@@ -1,4 +1,3 @@
-console.log("I'm adding artists!")
 
 document.querySelector('form[name="addArtist"]')
   .addEventListener('submit', async function (event) {
