@@ -7,7 +7,7 @@ async function fetchArtists() {
     <option value="${artist.id}">${artist.name}</option>
     `
   }
-  document.querySelector('select[name="id"]').innerHTML += htmlList
+  document.querySelector('form[name="editOrRemoveArtist"] select[name="id"]').innerHTML += htmlList
 }
 fetchArtists()
 
