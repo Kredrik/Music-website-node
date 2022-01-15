@@ -1,3 +1,6 @@
+//Quality of life ideas:
+//Delete artist with albums
+
 async function fetchArtists() {
   let artists = await (await fetch('/api/artists?order=name')).json()
 
